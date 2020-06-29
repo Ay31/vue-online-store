@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">
-      <h1></h1>
+      <h1>{{ msg }}</h1>
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       msg: 'Welecome to my vue.js App'
     }
