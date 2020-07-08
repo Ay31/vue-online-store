@@ -34,7 +34,6 @@ export default new Router({
           name: 'New',
           component: New
         },
-
         {
           path: 'edit/:id',
           name: 'Edit',
