@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
+const API = 'http://localhost:3000/api/v1'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -64,6 +66,25 @@ export default new Vuex.Store({
     removeProduct(state, payload) {
       const { productId } = payload
       state.cart = state.cart.filter((product) => product._id !== productId)
+    },
+    allProducts(state) {
+      state.showLoader = true
+    },
+    allProductsSuc(state, payload) {
+      const { products } = payload
+      state.showLoader = false
+      state.products = products
+    }
+  },
+  actions: {
+    addProducts({ commit }) {
+      commit('allProducts')
+      axios.get(`${API}/products`).then((response) => {
+        console.log('response', response)
+        commit('allProductsSuc', {
+          products: response.data
+        })
+      })
     }
   }
 })

@@ -40,9 +40,14 @@ export default {
   },
   methods: {
     addToCart(product) {
-      this.$store.commit('ADD_TO_CART', {
+      this.$store.commit('addProduct', {
         product
       })
+    }
+  },
+  created() {
+    if (!this.products.length) {
+      this.$store.dispatch('allProducts')
     }
   }
 }
