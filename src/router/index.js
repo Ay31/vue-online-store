@@ -25,15 +25,16 @@ export default new Router({
       component: Index,
       children: [
         {
-          path: 'new',
-          name: 'New',
-          component: New
-        },
-        {
           path: '',
           name: 'Products',
           component: Products
         },
+        {
+          path: 'new',
+          name: 'New',
+          component: New
+        },
+
         {
           path: 'edit/:id',
           name: 'Edit',
