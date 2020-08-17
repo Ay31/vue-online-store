@@ -3,13 +3,7 @@
     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <div class="form-group">
         <label>Name</label>
-        <input
-          type="text"
-          placeholder="Name"
-          v-model="model.name"
-          name="name"
-          class="form-control"
-        />
+        <input type="text" placeholder="Name" v-model="model.name" name="name" class="form-control" />
       </div>
       <div class="form-group">
         <label>Price</label>
@@ -27,9 +21,10 @@
           <div v-for="(manufacturer, index) in manufacturers" :key="index">
             <option
               :value="manufacturer._id"
-              :selected="manufacturer._id == (model.manufacturer && model.manufacturer._id)"
-              >{{ manufacturer.name }}</option
-            >
+              :selected="
+                                manufacturer._id == (model.manufacturer && model.manufacturer._id)
+                            "
+            >{{ manufacturer.name }}</option>
           </div>
         </select>
       </div>
