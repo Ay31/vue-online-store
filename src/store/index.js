@@ -89,9 +89,9 @@ export default new Vuex.Store({
     allProducts(state) {
       return state.products
     },
-    productById: (state, getters) => id => {
+    productById: (state, getters) => (id) => {
       if (getters.allProducts.length > 0) {
-        return getters.allProducts.filter(product => product._id === id)[0]
+        return getters.allProducts.filter((product) => product._id === id)[0]
       } else {
         return state.product
       }
@@ -101,16 +101,14 @@ export default new Vuex.Store({
     allProducts({ commit }) {
       commit('allProducts')
       axios.get(`${API}/products`).then((response) => {
-        console.log('response', response)
         commit('allProductsSuc', {
           products: response.data
         })
       })
     },
-    productById({ commit }) {
+    productById({ commit }, { productId }) {
       commit('getProductById')
       axios.get(`${API}/products/${productId}`).then((response) => {
-        console.log('response', response)
         commit('getProductByIdSuc', {
           products: response.data
         })

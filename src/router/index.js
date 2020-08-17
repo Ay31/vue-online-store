@@ -23,18 +23,17 @@ export default new Router({
     },
     {
       path: '/admin',
-      name: 'Admin',
       component: Index,
       children: [
-        {
-          path: '',
-          name: 'Products',
-          component: Products
-        },
         {
           path: 'new',
           name: 'New',
           component: New
+        },
+        {
+          path: '',
+          name: 'Products',
+          component: Products
         },
         {
           path: 'edit/:id',

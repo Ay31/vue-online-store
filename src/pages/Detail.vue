@@ -9,7 +9,6 @@ import ProductDetail from '@/components/products/ProductDetail'
 
 export default {
   name: 'detail',
-  props: ['product'],
   components: {
     'product-detail': ProductDetail
   },

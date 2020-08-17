@@ -11,7 +11,13 @@ export default {
   props: ['product'],
   computed: {
     isAdding() {
-      return !Boolean(this.cart.filter((product) => product._id === this.product._id).length)
+      let isAdding = true
+      this.cart.map(product => {
+        if (product._id === this.product._id) {
+          isAdding = false
+        }
+      })
+      return isAdding
     },
     cart() {
       return this.$store.state.cart
