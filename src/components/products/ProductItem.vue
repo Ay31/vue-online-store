@@ -1,6 +1,7 @@
 <template>
-  <div class="products">
-    <el-table class="table" :data="products" max-height="250">
+  <div class="product">
+    
+    <el-table class="table" :data="products">
       <el-table-column prop="name" label="产品名称" width="180"></el-table-column>
       <el-table-column prop="description" label="介绍" width="180"></el-table-column>
       <el-table-column prop="price" label="价格" width="180"></el-table-column>
@@ -37,4 +38,5 @@ export default {
   width: 100px;
   height: 100px;
 } */
+
 </style>

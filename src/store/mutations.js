@@ -21,7 +21,7 @@ export const productMutations = {
   removeProductSuc(state, payload) {
     state.showLoader = false
     const { productId } = payload
-    state.products = state.products.filter(product => product._id !== productId)
+    state.products = state.products.filter((product) => product._id !== productId)
   },
   updateProduct(state) {
     state.showLoader = true
@@ -29,7 +29,7 @@ export const productMutations = {
   updateProductSuc(state, payload) {
     state.showLoader = false
     const { product: newProduct } = payload
-    state.products = state.products.map(product => {
+    state.products = state.products.map((product) => {
       if (product._id === newProduct._id) {
         return newProduct
       }
@@ -67,6 +67,14 @@ export const manufacturerMutations = {
     state.showLoader = false
     state.manufacturers = manufacturers
   },
+  getManufacturerId(state) {
+    state.showLoader = true
+  },
+  getManufacturerIdSuc(state, payload) {
+    state.showLoader = false
+    const { manufacturer } = payload
+    state.manufacturer = manufacturer
+  },
   removeManufacturers(state) {
     state.showLoader = true
   },
@@ -76,5 +84,27 @@ export const manufacturerMutations = {
     state.manufacturers = state.manufacturers.filter(
       (manufacturer) => manufacturer._id !== manufacturerId
     )
+  },
+  updateManufacturer(state) {
+    state.showLoader = true
+  },
+  updateManufacturerSuc(state, payload) {
+    state.showLoader = false
+    const { manufacturer: newManufacturer } = payload
+    state.manufacturers = state.manufacturers.map((manufacturer) => {
+      if (manufacturer._id === newManufacturer._id) {
+        return newManufacturer
+      }
+      return manufacturer
+    })
+    state.manufacturer = newManufacturer
+  },
+  addManufacturer(state) {
+    state.showLoader = true
+  },
+  addManufacturerSuc(state, payload) {
+    state.showLoader = false
+    const { manufacturer } = payload
+    state.manufacturers = state.manufacturers.concat(manufacturer)
   }
 }

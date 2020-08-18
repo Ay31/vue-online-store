@@ -13,6 +13,7 @@ export default {
   computed: {
     model() {
       const manufacturer = this.$store.getters.manufacturerById(this.$route.params['id'])
+
       return { ...manufacturer }
     }
   },

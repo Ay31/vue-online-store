@@ -53,5 +53,9 @@ export default {
 </script>
 
 <style>
-
+.title {
+  text-align: center;
+}
+.menu {
+}
 </style>

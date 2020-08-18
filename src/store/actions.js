@@ -60,6 +60,15 @@ export const manufacturerActions = {
       })
     })
   },
+  manufacturerById({ commit }, payload) {
+    commit('getManufacturerId')
+    const { manufacturerId } = payload
+    axios.get(`${API_BASE}/manufacturers/${manufacturerId}`).then((response) => {
+      commit('getManufacturerIdSuc', {
+        manufacturer: response.data
+      })
+    })
+  },
   removeManufacturer({ commit }, payload) {
     commit('removeManufacturers')
     const { manufacturerId } = payload
@@ -69,5 +78,43 @@ export const manufacturerActions = {
         manufacturerId
       })
     })
+  },
+  updateManufacturer({ commit }, payload) {
+    commit('updateManufacturer')
+    const { manufacturer } = payload
+    axios
+      .put(`${API_BASE}/manufacturers/${manufacturer._id}`, manufacturer)
+      .then((response) => {
+        commit('updateManufacturerSuc', {
+          manufacturer: manufacturer
+        })
+        Message({
+          message: '恭喜你，制造商更新成功！',
+          type: 'success'
+        })
+      })
+      .catch(() => {
+        Message.error('不好意思，制造商更新失败！')
+      })
+  },
+  addManufacturer({ commit, state }, payload) {
+    commit('addManufacturer')
+    const { manufacturer } = payload
+    const _id = state.user._id
+
+    axios
+      .post(`${API_BASE}/manufacturers`, { ...manufacturer, user: _id })
+      .then((response) => {
+        commit('addManufacturerSuc', {
+          manufacturer: response.data
+        })
+        Message({
+          message: '恭喜你，制造商添加成功！',
+          type: 'success'
+        })
+      })
+      .catch(() => {
+        Message.error('不好意思，制造商添加失败！')
+      })
   }
 }

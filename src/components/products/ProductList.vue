@@ -51,4 +51,9 @@ export default {
   width: 100px;
   height: 100px;
 } */
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
