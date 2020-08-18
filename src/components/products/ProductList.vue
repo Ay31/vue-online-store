@@ -2,7 +2,8 @@
   <div>
     <div class="products">
       <div class="container">This is ProductList</div>
-      <product-item v-for="product in products" :key="product._id" :product="product"></product-item>
+      <!-- <product-item v-for="product in products" :key="product._id" :product="product"></product-item> -->
+      <product-item :products="products"></product-item>
     </div>
   </div>
 </template>
@@ -42,12 +43,12 @@ export default {
 </script>
 
 <style>
-.product {
+/* .product {
   border-bottom: 1px solid black;
 }
 
 .product-image {
   width: 100px;
   height: 100px;
-}
+} */
 </style>
