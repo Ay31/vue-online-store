@@ -25,12 +25,12 @@ export default {
   },
   methods: {
     addToCart(product) {
-      this.$store.commit('addProduct', {
+      this.$store.commit('addToCart', {
         product
       })
     },
     removeFromCart(productId) {
-      this.$store.commit('removeProduct', {
+      this.$store.commit('removeFromCart', {
         productId
       })
     }

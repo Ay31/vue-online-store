@@ -18,14 +18,12 @@
       <div class="form-group">
         <label>Manufacturer</label>
         <select type="text" class="form-control" v-model="model.manufacturer" name="manufacturer">
-          <div v-for="(manufacturer, index) in manufacturers" :key="index">
             <option
+              v-for="(manufacturer, index) in manufacturers"
+              :key="index"
               :value="manufacturer._id"
-              :selected="
-                                manufacturer._id == (model.manufacturer && model.manufacturer._id)
-                            "
+              :selected="manufacturer._id == (model.manufacturer && model.manufacturer._id)"
             >{{ manufacturer.name }}</option>
-          </div>
         </select>
       </div>
     </div>

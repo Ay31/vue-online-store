@@ -42,7 +42,7 @@ export default {
     }
   },
   created() {
-    if (this.manufacturers.length === 0) {
+    if (!this.manufacturers.length) {
       this.$store.dispatch('allManufacturers')
     }
   }

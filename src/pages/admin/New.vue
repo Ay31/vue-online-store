@@ -1,37 +1,38 @@
 <template>
-  <product-form
-    @save-product="addProduct"
-    :model="model"
-    :manufacturers="manufacturers"
-  ></product-form>
+  <product-form @save-product="addProduct" :model="model" :manufacturers="manufacturers"></product-form>
 </template>
 
 <script>
 import ProductForm from '@/components/products/ProductForm.vue'
 
 export default {
+  name: 'new',
+  components: {
+    'product-form': ProductForm
+  },
   data() {
     return {
-      model: {},
-      manufacturers: [
-        {
-          _id: 'sam',
-          name: 'Samsung'
-        },
-        {
-          _id: 'apple',
-          name: 'Apple'
-        }
-      ]
+      model: {
+        manufacturer: { name: '', _id: '' }
+      }
+    }
+  },
+  computed: {
+    manufacturers() {
+      return this.$store.getters.allManufacturers
     }
   },
   methods: {
-    addProduct(model) {
-      console.log('model', model)
+    addProduct(product) {
+      this.$store.dispatch('addProduct', {
+        product
+      })
     }
   },
-  components: {
-    'product-form': ProductForm
+  created() {
+    if (this.manufacturers.length === 0) {
+      this.$store.dispatch('allManufacturers')
+    }
   }
 }
 </script>

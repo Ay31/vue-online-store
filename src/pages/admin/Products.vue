@@ -44,7 +44,7 @@ export default {
     }
   },
   created() {
-    if (this.manufacturers.length === 0) {
+    if (this.products.length === 0) {
       this.$store.dispatch('allProducts')
     }
   }

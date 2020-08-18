@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     removeFormCart(productId) {
-      this.$store.commit('removeProduct', {
+      this.$store.commit('removeFromCart', {
         productId
       })
     }
