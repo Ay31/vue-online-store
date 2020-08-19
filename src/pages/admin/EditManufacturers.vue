@@ -10,12 +10,16 @@ export default {
   components: {
     'manufacturer-form': ManufacturerForm
   },
-  computed: {
-    model() {
-      const manufacturer = this.$store.getters.manufacturerById(this.$route.params['id'])
-
-      return { ...manufacturer }
+  data() {
+    return {
+      model: {}
     }
+  },
+  computed: {
+    // model() {
+    //   const manufacturer = this.$store.getters.manufacturerById(this.$route.params['id'])
+    //   return { ...manufacturer }
+    // }
   },
   methods: {
     updateManufacturer(model) {
@@ -28,6 +32,8 @@ export default {
     this.$store.dispatch('manufacturerById', {
       manufacturerId: this.$route.params['id']
     })
+    const manufacturer = this.$store.getters.manufacturerById(this.$route.params['id'])
+    this.model = { ...manufacturer }
   }
 }
 </script>

@@ -31,7 +31,7 @@ export default {
 }
 
 .form {
-  /* margin: 0 auto; */
+  margin: 0 auto;
   width: 500px;
 }
 

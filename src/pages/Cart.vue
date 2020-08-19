@@ -3,7 +3,8 @@
     <div class="title">
       <h1>{{ msg }}</h1>
     </div>
-    <product-item class="product" v-for="product in cart" :key="product._id" :product="product"></product-item>
+    <!-- <product-item class="product" v-for="product in cart" :key="product._id" :product="product"></product-item> -->
+    <product-item :products="cart"></product-item>
   </div>
 </template>
 

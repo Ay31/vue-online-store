@@ -1,3 +1,5 @@
+import { Message } from 'element-ui'
+
 export const productMutations = {
   allProducts(state) {
     state.showLoader = true
@@ -50,10 +52,18 @@ export const cartMutations = {
   addToCart(state, payload) {
     const { product } = payload
     state.cart.push(product)
+    Message({
+      message: '恭喜你，成功加入购物车！',
+      type: 'success'
+    })
   },
   removeFromCart(state, payload) {
     const { productId } = payload
     state.cart = state.cart.filter((product) => product._id !== productId)
+    Message({
+      message: '恭喜你，成功移除购物车！',
+      type: 'success'
+    })
   }
 }
 
@@ -63,7 +73,6 @@ export const manufacturerMutations = {
   },
   allManufacturersSuc(state, payload) {
     const { manufacturers } = payload
-    console.log(manufacturers)
     state.showLoader = false
     state.manufacturers = manufacturers
   },

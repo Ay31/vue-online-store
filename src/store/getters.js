@@ -13,7 +13,6 @@ export const productGetters = {
 
 export const manufacturerGetters = {
   allManufacturers(state) {
-    console.log(state.manufacturers)
     return state.manufacturers
   },
   manufacturerById: (state, getters) => (id) => {
