@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 
-const API_BASE = 'http://localhost:3000/api/v1'
+const API_BASE = '/api/v1'
 
 export const productActions = {
   allProducts({ commit }) {
